@@ -61,7 +61,7 @@ Saya pilih arsitektur ini karena:
 
 - **Item tanpa varian**: stok disimpan di field `Item.stock`
 - **Item dengan varian**: stok disimpan di masing-masing `Variant.stock`, `Item.stock = 0`
-- Ini keputusan paling simpel tanpa perlu tabel stok terpisah
+- Keputusan diambil karena tidak perlu tabel stok terpisah
 
 ### 4. Harga Varian Opsional
 
