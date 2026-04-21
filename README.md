@@ -18,13 +18,6 @@ cd /Users/kindharika/Code/java-be-test
 mvn spring-boot:run
 ```
 
-Pertama kali dijalankan, Maven akan download dependency dulu (butuh internet, ~1-2 menit).
-Setelah itu muncul log seperti ini, artinya sudah berjalan:
-
-```
-Started WarehouseApplication in 3.2 seconds
-```
-
 ### 1. Arsitektur Berlapis (Layered Architecture)
 
 ```
@@ -94,25 +87,31 @@ Saya pilih arsitektur ini karena:
 **Base URL**: `http://localhost:8080`
 
 ### Item Endpoints
-| Method | Endpoint | Fungsi |
-|--------|----------|--------|
-| GET | `/api/items` | Ambil semua item |
-| POST | `/api/items` | Buat item baru |
-| GET | `/api/items/{id}` | Ambil satu item |
-| PUT | `/api/items/{id}` | Update item |
-| DELETE | `/api/items/{id}` | Hapus item |
-| PUT | `/api/items/{id}/stock` | Update stok item |
-| POST | `/api/items/{id}/sell` | Jual item (kurangi stok) |
+
+
+| Method | Endpoint                | Fungsi                   |
+| ------ | ----------------------- | ------------------------ |
+| GET    | `/api/items`            | Ambil semua item         |
+| POST   | `/api/items`            | Buat item baru           |
+| GET    | `/api/items/{id}`       | Ambil satu item          |
+| PUT    | `/api/items/{id}`       | Update item              |
+| DELETE | `/api/items/{id}`       | Hapus item               |
+| PUT    | `/api/items/{id}/stock` | Update stok item         |
+| POST   | `/api/items/{id}/sell`  | Jual item (kurangi stok) |
+
 
 ### Variant Endpoints
-| Method | Endpoint | Fungsi |
-|--------|----------|--------|
-| GET | `/api/items/{itemId}/variants` | Ambil semua varian |
-| POST | `/api/items/{itemId}/variants` | Tambah varian baru |
-| PUT | `/api/items/{itemId}/variants/{variantId}` | Update varian |
-| DELETE | `/api/items/{itemId}/variants/{variantId}` | Hapus varian |
-| PUT | `/api/items/{itemId}/variants/{variantId}/stock` | Update stok varian |
-| POST | `/api/items/{itemId}/variants/{variantId}/sell` | Jual varian |
+
+
+| Method | Endpoint                                         | Fungsi             |
+| ------ | ------------------------------------------------ | ------------------ |
+| GET    | `/api/items/{itemId}/variants`                   | Ambil semua varian |
+| POST   | `/api/items/{itemId}/variants`                   | Tambah varian baru |
+| PUT    | `/api/items/{itemId}/variants/{variantId}`       | Update varian      |
+| DELETE | `/api/items/{itemId}/variants/{variantId}`       | Hapus varian       |
+| PUT    | `/api/items/{itemId}/variants/{variantId}/stock` | Update stok varian |
+| POST   | `/api/items/{itemId}/variants/{variantId}/sell`  | Jual varian        |
+
 
 ---
 
@@ -419,3 +418,4 @@ src/main/resources/
 ├── application.properties          ← konfigurasi app & database
 └── data.sql                        ← data contoh otomatis
 ```
+
