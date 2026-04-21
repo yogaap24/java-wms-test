@@ -6,10 +6,11 @@ REST API untuk sistem manajemen gudang toko, dibuat dengan Java 17 dan Spring Bo
 
 ## Cara Menjalankan Aplikasi
 
-### Clone & Masuk ke Direktori
+### Clone Repository
 
 ```bash
-cd /Users/kindharika/Code/java-be-test
+git clone https://github.com/yogaap24/java-wms-test.git
+cd java-wms-test
 ```
 
 ### Jalankan Aplikasi
