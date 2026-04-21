@@ -25,45 +25,6 @@ Setelah itu muncul log seperti ini, artinya sudah berjalan:
 Started WarehouseApplication in 3.2 seconds
 ```
 
-### Akses API
-
-- **Base URL**: `http://localhost:8080`
-- **H2 Console** (lihat isi database): `http://localhost:8080/h2-console`
-  - JDBC URL: `jdbc:h2:mem:warehousedb`
-  - Username: `sa`
-  - Password: *(kosong)*
-
-> **Catatan**: Data contoh sudah otomatis dimasukkan saat app start via `data.sql`. Data akan hilang saat app dimatikan karena pakai H2 in-memory.
-
----
-
-## Daftar Semua Endpoint API
-
-**Base URL**: `http://localhost:8080`
-
-### Item Endpoints
-| Method | Endpoint | Fungsi |
-|--------|----------|--------|
-| GET | `/api/items` | Ambil semua item |
-| POST | `/api/items` | Buat item baru |
-| GET | `/api/items/{id}` | Ambil satu item |
-| PUT | `/api/items/{id}` | Update item |
-| DELETE | `/api/items/{id}` | Hapus item |
-| PUT | `/api/items/{id}/stock` | Update stok item |
-| POST | `/api/items/{id}/sell` | Jual item (kurangi stok) |
-
-### Variant Endpoints
-| Method | Endpoint | Fungsi |
-|--------|----------|--------|
-| GET | `/api/items/{itemId}/variants` | Ambil semua varian |
-| POST | `/api/items/{itemId}/variants` | Tambah varian baru |
-| PUT | `/api/items/{itemId}/variants/{variantId}` | Update varian |
-| DELETE | `/api/items/{itemId}/variants/{variantId}` | Hapus varian |
-| PUT | `/api/items/{itemId}/variants/{variantId}/stock` | Update stok varian |
-| POST | `/api/items/{itemId}/variants/{variantId}/sell` | Jual varian |
-
----
-
 ### 1. Arsitektur Berlapis (Layered Architecture)
 
 ```
@@ -113,6 +74,45 @@ Saya pilih arsitektur ini karena:
 4. **Tidak ada autentikasi** — tidak ada login/JWT karena scope test hanya CRUD + stock management
 5. **Harga dalam format desimal** — menggunakan `BigDecimal` untuk mencegah masalah floating point pada kalkulasi uang
 6. **Hapus item = hapus semua variannya** — menggunakan `CascadeType.ALL` + `orphanRemoval = true`
+
+---
+
+### Akses API
+
+- **Base URL**: `http://localhost:8080`
+- **H2 Console** (lihat isi database): `http://localhost:8080/h2-console`
+  - JDBC URL: `jdbc:h2:mem:warehousedb`
+  - Username: `sa`
+  - Password: *(kosong)*
+
+> **Catatan**: Data contoh sudah otomatis dimasukkan saat app start via `data.sql`. Data akan hilang saat app dimatikan karena pakai H2 in-memory.
+
+---
+
+## Daftar Semua Endpoint API
+
+**Base URL**: `http://localhost:8080`
+
+### Item Endpoints
+| Method | Endpoint | Fungsi |
+|--------|----------|--------|
+| GET | `/api/items` | Ambil semua item |
+| POST | `/api/items` | Buat item baru |
+| GET | `/api/items/{id}` | Ambil satu item |
+| PUT | `/api/items/{id}` | Update item |
+| DELETE | `/api/items/{id}` | Hapus item |
+| PUT | `/api/items/{id}/stock` | Update stok item |
+| POST | `/api/items/{id}/sell` | Jual item (kurangi stok) |
+
+### Variant Endpoints
+| Method | Endpoint | Fungsi |
+|--------|----------|--------|
+| GET | `/api/items/{itemId}/variants` | Ambil semua varian |
+| POST | `/api/items/{itemId}/variants` | Tambah varian baru |
+| PUT | `/api/items/{itemId}/variants/{variantId}` | Update varian |
+| DELETE | `/api/items/{itemId}/variants/{variantId}` | Hapus varian |
+| PUT | `/api/items/{itemId}/variants/{variantId}/stock` | Update stok varian |
+| POST | `/api/items/{itemId}/variants/{variantId}/sell` | Jual varian |
 
 ---
 
@@ -419,4 +419,3 @@ src/main/resources/
 ├── application.properties          ← konfigurasi app & database
 └── data.sql                        ← data contoh otomatis
 ```
-
