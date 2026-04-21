@@ -76,7 +76,7 @@ Saya pilih arsitektur ini karena:
 ### 6. Lombok
 
 - Mengurangi kode boilerplate (getter, setter, constructor, builder)
-- Tanpa Lombok, setiap entity/DTO butuh puluhan baris kode tambahan
+- Tanpa Lombok, setiap entity/DTO butuh lebih banyak baris kode.
 
 ---
 
